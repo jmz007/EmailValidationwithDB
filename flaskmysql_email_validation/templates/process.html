@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Email Validation Process</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/pretty.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div id="container">
+<!--         wrong         -->
+ {% with messages = get_flashed_messages(category_filter=["wrong"]) %}
+              {% if messages %}
+                {% for message in messages %}
+
+                
+                        <h4>{{message}}</h4>
+                
+                {% endfor %}
+                <form action='/reset' method='post'>
+                <input type='submit' name='reset' class="btn btn-default navbar-btn" value='Try again'>
+                </form>
+              {% endif %}
+            {% endwith %}
+
+
+<!--        Success        -->
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+              {% if messages %}
+                {% for message in messages %}
+              
+                        <li>{{message}}</li>
+               
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+        {% for email in emails: %}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>Email: {{ email['email']}} {{ email['created_at']}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

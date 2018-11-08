@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Email Validation from Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/pretty.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div id="container">
+        <h1>Email Validation</h1>
+            <form action="/signup" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-5">
+            <input type="text" id="email" name="email" class="form-control" placeholder="address@domain.tld">
+            <input type="submit" name="email" class="btn btn-default navbar-btn">
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
